@@ -17,19 +17,23 @@ namespace DAL.Implementations
 
         public IRolDAL _rolDAL { get; }
 
+        public IEstadosDAL _estadosDAL { get; }
+
         private readonly ProyectManagerContext _context;
        
         public UnidadDeTrabajo(ProyectManagerContext context,
                             IDepartamentoDAL departamentoDAL,
                             ICargosDAL cargosDAL,
                             IUsuariosDAL usuariosDAL,
-                            IRolDAL oldrDAL)
+                            IRolDAL oldrDAL,
+                            IEstadosDAL estadosDAL)
         {
             _context = context;
             _departamentoDAL = departamentoDAL;
             _cargosDAL = cargosDAL;
             _usuariosDAL = usuariosDAL;
             _rolDAL = oldrDAL;
+            _estadosDAL = estadosDAL;
         }
 
         public bool Complete()

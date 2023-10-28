@@ -25,6 +25,8 @@ builder.Services.AddScoped<IUsuariosDAL, UsuariosDALImpl>();
 builder.Services.AddScoped<IUsuariosService, UsuariosService>();
 builder.Services.AddScoped<IRolDAL, RolDALImpl>();
 builder.Services.AddScoped<IRolService, RolService>();
+builder.Services.AddScoped<IEstadosDAL, EstadosDALImpl>();
+builder.Services.AddScoped<IEstadosService, EstadosService>();
 
 
 

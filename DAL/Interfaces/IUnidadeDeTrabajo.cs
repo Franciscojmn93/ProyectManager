@@ -15,6 +15,8 @@ namespace DAL.Interfaces
         IUsuariosDAL _usuariosDAL { get; }  
         IRolDAL _rolDAL { get; }
 
+        IEstadosDAL _estadosDAL { get; }
+
         //hasta las interfaces//
 
         bool Complete();
