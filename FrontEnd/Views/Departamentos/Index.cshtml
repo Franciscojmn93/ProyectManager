@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FrontEnd.Models.DepartamentosViewModel>
+
+@{
+    ViewData["Title"] = "Departamentos";
+}
+<h2><span style="color: darkgrey; font-weight: bold;">Lista de departamentos</span></h2>
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary btn-sm">Insertar nuevo Departamento</a>
+</p>
+<table id="tablaDepartamentos" class="table table-striped table-bordered table-hover" style="width:100%">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDepartamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreDepartamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreResponsable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreDepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreResponsable)
+            </td>
+            <td>
+                 <a asp-action="Details" asp-route-id="@item.IdDepartamento" class="btn btn-outline-info btn-sm"><i class="fa fa-eye" aria-hidden="true" style="font-size: 20px;"></i></a>
+                 <a asp-action="Edit" asp-route-id="@item.IdDepartamento" class="btn btn-outline-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true" style="font-size: 20px;"></i></a>
+                 <a asp-action="Delete" asp-route-id="@item.IdDepartamento" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts{
+
+
+    <script>
+
+        $(document).ready(function () {
+            $('#tablaDepartamentos').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.2/i18n/es-ES.json"
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    '', '', ''
+
+
+                    , {
+                        extend: 'pdfHtml5', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2]
+                        }
+                    }
+
+                    , {
+                        extend: 'excelHtml5', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2]
+                        }
+                    }
+                    , {
+                        extend: 'csvHtml5', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2]
+                        }
+                    }
+                    , {
+                        extend: 'print', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2]
+                        }
+                    }
+                ],
+            });
+        });
+
+    </script>
+
+
+}

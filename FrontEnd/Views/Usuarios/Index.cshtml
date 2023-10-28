@@ -1,0 +1,106 @@
+﻿@model IEnumerable<FrontEnd.Models.UsuarioViewModel>
+@{
+    ViewData["Title"] = "Usuarios";
+}
+<h2><span style="color: darkgrey; font-weight: bold;">Lista de usuarios</span></h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary btn-sm">Insertar nuevo Usuario</a>
+</p>
+<table id="tablaUsuarios" class="table table-striped table-bordered table-hover" style="width:100%">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                Id de Usuario
+            </th>
+            <th>
+                Nombre de usuario
+            </th>
+            <th>
+                Cargo
+            </th>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Rol
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreUsaurio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCargo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDepartamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idrol)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdUsuario" class="btn btn-outline-info btn-sm"><i class="fa fa-eye" aria-hidden="true" style="font-size: 20px;"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="btn btn-outline-warning btn-sm"><i class="fa fa-pencil" aria-hidden="true" style="font-size: 20px;"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash" aria-hidden="true" style="font-size: 20px;"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts{
+
+    
+    <script>
+
+        $(document).ready(function () {
+            $('#tablaUsuarios').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.2/i18n/es-ES.json"
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    '', '', ''
+
+
+                    , {
+                        extend: 'pdfHtml5', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    }
+
+                    , {
+                        extend: 'excelHtml5', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    }
+                    , {
+                        extend: 'csvHtml5', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    }
+                    , {
+                        extend: 'print', className: "btn btn-outline-secondary btn-sm",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        }
+                    }
+                ],
+            });
+        });
+
+    </script>
+
+
+}

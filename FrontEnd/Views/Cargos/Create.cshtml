@@ -1,0 +1,29 @@
+﻿@model FrontEnd.Models.CargosViewModel
+
+@{
+    ViewData["Title"] = "Agregar";
+}
+<h2><span style="color: darkgrey; font-weight: bold;">Agregar nuevo cargo</span></h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreCargo" class="control-label"></label>
+                <input asp-for="NombreCargo" class="form-control" />
+                <span asp-validation-for="NombreCargo" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                <input type="submit" value="Insertar" class="btn btn-outline-success btn-sm" />
+                <a asp-controller="Cargos" asp-action="Index" class="btn btn-outline-secondary btn-sm">Atrás</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

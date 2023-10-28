@@ -1,0 +1,50 @@
+﻿@model FrontEnd.Models.UsuarioViewModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h2>Desea eliminar del sistema al usuario <span style="color: red; font-weight: bold;">@Model.NombreUsaurio</span>?</h2>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdUsuario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NombreUsaurio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreUsaurio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdCargo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdCargo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdDepartamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdDepartamento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idrol)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idrol)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        @Html.HiddenFor(Model=>Model.IdUsuario)
+        <div class ="d-grid gap-1 d-md-flex justify-content-md-start">
+            <input type="submit" value="Eliminar" class="btn btn-outline-danger" />
+            <a asp-controller="Usuarios" asp-action="Index" class="btn btn-outline-secondary btn-sm">Atrás</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+﻿@model FrontEnd.Models.UsuarioViewModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h2>Editar usuario <span style="color: orange; font-weight: bold;">@Model.NombreUsaurio</span></h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreUsaurio" class="control-label"></label>
+                <input asp-for="NombreUsaurio" class="form-control" />
+                <span asp-validation-for="NombreUsaurio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCargo" class="control-label"></label>
+                @Html.DropDownListFor(model=>model.IdCargo, new SelectList(Model.Cargos,"IdCargo","NombreCargo"),"--Seleccione Cargo--", new { @class = "form-control" })
+                <span asp-validation-for="IdCargo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdDepartamento" class="control-label"></label>
+                @Html.DropDownListFor(model=>model.IdDepartamento, new SelectList(Model.Departamentos,"IdDepartamento","NombreDepartamento"),"--Seleccione Depart.--", new { @class = "form-control" })
+                <span asp-validation-for="IdDepartamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idrol" class="control-label"></label>
+                @Html.DropDownListFor(model=>model.Idrol, new SelectList(Model.roles,"IdRol","NombreRol"),"--Seleccione Rol--", new { @class = "form-control" })
+                <span asp-validation-for="Idrol" class="text-danger"></span>
+            </div>
+             <hr />
+            <div class="d-grid gap-1 d-md-flex justify-content-md-start">
+                <input type="submit" value="Guardar Cambios" class="btn btn-outline-success btn-sm" />
+                <a asp-controller="Usuarios" asp-action="Index" class="btn btn-outline-secondary btn-sm">Atrás</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
