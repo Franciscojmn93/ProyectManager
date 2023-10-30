@@ -1,0 +1,70 @@
+﻿@model FrontEnd.Models.EstadosViewModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+<h2>Desea eliminar del sistema el Estado <span style="color: red; font-weight: bold;">@Model.Descripcion</span> ?</h2>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEstado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEstado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" id="delete">
+        @Html.HiddenFor(Model=>Model.IdEstado)
+        <div class="d-grid gap-1 d-md-flex justify-content-md-start">
+            <button id="btneliminar" type="button" class="btn btn-outline-danger btn-sm">Eliminar</button>
+            <a asp-controller="Cargos" asp-action="Index" class="btn btn-outline-secondary btn-sm">Atrás</a>
+        </div>
+    </form>
+</div>
+
+<link href="~/codemirroreditor/codemirror.min.css" rel="stylesheet" />
+<link href="~/codemirroreditor/lint.min.css" rel="stylesheet" />
+<script src="~/codemirroreditor/codemirror.min.js"></script>
+<script src="~/codemirroreditor/clike.min.js"></script>
+<script src="~/codemirroreditor/lint.min.js"></script>
+<script src="~/codemirroreditor/javascript-lint.min.js"></script>
+<link href="~/codemirror/theme/darcula.css" rel="stylesheet" />
+<script src="~/codemirror/mode/sql/sql.js"></script>
+<script src="~/js/indexqueries.js"></script>
+<script src="~/codemirror/addon/display/autorefresh.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/sprinkle.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#btneliminar').click(function (e) {
+            e.preventDefault();
+
+            swal.fire({
+                title: 'ADVERTENCIA!!!!!',
+                text: 'Esta acción provocará una eliminación en cascada que afectará los registros asociados en el apartado Tareas y Proyectos',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Porceder de todas formas',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#delete').submit();
+                }
+            });
+        });
+    });
+</script>

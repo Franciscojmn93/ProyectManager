@@ -71,6 +71,44 @@
                                         </div>Ver Proyectos por departamento
                                     </a>
 
+                                <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion2">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages2">
+                                        <div class="collapse" id="pagesCollapseAuth2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages2">
+                                            <nav class="sb-sidenav-menu-nested nav">
+
+                                            </nav>
+                                        </div>
+                                    </nav>
+                                </div>
+                                    @*menu tareas*@
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages2" aria-expanded="false" aria-controls="collapsePages2">
+                                    <div class="sb-nav-link-icon">
+                                        <i class="fa-solid fa-database"></i>
+                                    </div>
+                                    Tareas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion2">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages2">
+
+                                        <a class="nav-link " asp-area="" asp-controller="Departamentos" asp-action="Create">
+                                            <div class="sb-nav-link-icon">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>Agregar nueva tarea
+                                        </a>
+                                        <a class="nav-link " asp-area="" asp-controller="Departamentos" asp-action="Index"><div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>Ver todas las Tareas</a>
+                                        <a class="nav-link " asp-area="" asp-controller="Estados" asp-action="Index"><div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>Ver Estados</a>
+                                        <a class="nav-link " asp-area="" asp-controller="Departamentos" asp-action="Index"><div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>Ver Prioridades</a>
+
+                                        <div class="collapse" id="pagesCollapseAuth2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages2">
+                                            <nav class="sb-sidenav-menu-nested nav">
+
+                                            </nav>
+                                        </div>
+
+                                    </nav>
+                                </div>
+                                @*menu tareas*@
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
 

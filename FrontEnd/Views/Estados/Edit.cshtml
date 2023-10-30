@@ -1,0 +1,36 @@
+﻿@model FrontEnd.Models.EstadosViewModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+<h2>Editar el Estado <span style="color: orange; font-weight: bold;">@Model.Descripcion</span></h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdEstado" class="control-label"></label>
+                <input asp-for="IdEstado" class="form-control" readonly />
+                <span asp-validation-for="IdEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="d-grid gap-1 d-md-flex justify-content-md-start">
+                <input type="submit" value="Guardar Cambios" class="btn btn-outline-success btn-sm" />
+                <a asp-controller="Estados" asp-action="Index" class="btn btn-outline-secondary btn-sm">Atrás</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

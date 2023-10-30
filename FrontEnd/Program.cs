@@ -15,6 +15,7 @@ builder.Services.AddScoped<IDepartamentoHelper, DepartamentoHelper>();
 builder.Services.AddScoped<ICargoHelper, CargoHelper>();
 builder.Services.AddScoped<IUsuarioHelper, UsuarioHelper>();
 builder.Services.AddScoped<IRolHelper, RolHelper>();
+builder.Services.AddScoped<IEstadosHelper, EstadosHelper>();
 #endregion
 
 var app = builder.Build();
