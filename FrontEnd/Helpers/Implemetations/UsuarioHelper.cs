@@ -62,6 +62,7 @@ namespace FrontEnd.Helpers.Implemetations
             return Product;
         }
 
+
         public List<UsuarioViewModel> GetUsuarios()
         {
             List<UsuarioViewModel> lista = new List<UsuarioViewModel>();

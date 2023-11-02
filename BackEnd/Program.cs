@@ -23,10 +23,18 @@ builder.Services.AddScoped<ICargosDAL, CargosDALImpl>();
 builder.Services.AddScoped<ICargosService, CargosService>();
 builder.Services.AddScoped<IUsuariosDAL, UsuariosDALImpl>();
 builder.Services.AddScoped<IUsuariosService, UsuariosService>();
+builder.Services.AddScoped<ISpUsuariosDAL, SpUsuariosDALImpl>();
+builder.Services.AddScoped<ISpUsuariosService, SpUsuariosService>();
 builder.Services.AddScoped<IRolDAL, RolDALImpl>();
 builder.Services.AddScoped<IRolService, RolService>();
 builder.Services.AddScoped<IEstadosDAL, EstadosDALImpl>();
 builder.Services.AddScoped<IEstadosService, EstadosService>();
+builder.Services.AddScoped<IPrioridadService, PrioridadService>();
+builder.Services.AddScoped<IPrioridadDAL, PrioridadDALImpl>();
+builder.Services.AddScoped<IProyectosDAL, ProyectosDALImpl>();
+builder.Services.AddScoped<IProyectosService, ProyectosService>();
+builder.Services.AddScoped<ISpProyectosService, SpProyectosService>();
+builder.Services.AddScoped<ISpProyectosDAL, SpProyectosDALImpl>();
 
 
 

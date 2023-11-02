@@ -19,6 +19,14 @@ namespace DAL.Implementations
 
         public IEstadosDAL _estadosDAL { get; }
 
+        public IPrioridadDAL _prioridadDAL { get; }
+
+        public IProyectosDAL _proyectosDAL { get; }
+
+        public ISpUsuariosDAL _spUsuariosDAL { get; }
+
+        public ISpProyectosDAL _spProyectosDAL { get; }
+
         private readonly ProyectManagerContext _context;
        
         public UnidadDeTrabajo(ProyectManagerContext context,
@@ -26,7 +34,11 @@ namespace DAL.Implementations
                             ICargosDAL cargosDAL,
                             IUsuariosDAL usuariosDAL,
                             IRolDAL oldrDAL,
-                            IEstadosDAL estadosDAL)
+                            IEstadosDAL estadosDAL,
+                            IPrioridadDAL prioridadDAL,
+                            IProyectosDAL proyectosDAL,
+                            ISpUsuariosDAL spUsuariosDAL,
+                            ISpProyectosDAL spProyectosDAL)
         {
             _context = context;
             _departamentoDAL = departamentoDAL;
@@ -34,6 +46,10 @@ namespace DAL.Implementations
             _usuariosDAL = usuariosDAL;
             _rolDAL = oldrDAL;
             _estadosDAL = estadosDAL;
+            _prioridadDAL = prioridadDAL;
+            _proyectosDAL = proyectosDAL;
+            _spUsuariosDAL = spUsuariosDAL;
+            _spProyectosDAL = spProyectosDAL;
         }
 
         public bool Complete()

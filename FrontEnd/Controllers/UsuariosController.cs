@@ -1,4 +1,5 @@
-﻿using FrontEnd.Helpers.Implemetations;
+﻿using Entities.Entities;
+using FrontEnd.Helpers.Implemetations;
 using FrontEnd.Helpers.Interfaces;
 using FrontEnd.Models;
 using Microsoft.AspNetCore.Http;
@@ -57,7 +58,7 @@ namespace FrontEnd.Controllers
             {
                 _usuarioHelper.AddUsuario(usuario);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "SpUsuarios");
             }
             catch
             {
@@ -84,7 +85,7 @@ namespace FrontEnd.Controllers
             try
             {
                 _usuarioHelper.EditUsuario(usuario);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "SpUsuarios");
             }
             catch
             {
@@ -96,19 +97,18 @@ namespace FrontEnd.Controllers
         public ActionResult Delete(int id)
         {
             UsuarioViewModel usuario = _usuarioHelper.GetById(id);
-
             return View(usuario);
         }
 
         // POST: UsuariosController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(UsuarioViewModel usuario)
         {
             try
             {
-                _usuarioHelper.DeleteUsuario(id);
-                return RedirectToAction(nameof(Index));
+                _usuarioHelper.DeleteUsuario(usuario.IdUsuario);
+                return RedirectToAction("Index", "SpUsuarios");
             }
             catch
             {

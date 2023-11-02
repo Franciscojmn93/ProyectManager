@@ -4,9 +4,10 @@ namespace BackEnd.Services.Interfaces
     public interface IUsuariosService
     {
         Task<IEnumerable<Usuario>> GetUsuarios();
-        Task<bool> Add(Usuario usuario);
-        Task<bool> Update(Usuario usuario);
-        Task<bool> Delete(int id);
-        Task<Usuario> GetById(int id);
+
+        Usuario GetById(int id);
+        bool Add(Usuario usuario);
+        bool Update(Usuario usuario);
+        bool Delete(Usuario usuario);
     }
 }

@@ -26,6 +26,9 @@ namespace Entities.Entities
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Tarea> Tareas { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
+        public virtual DbSet<sp_GetAllUsuarios_Result> Sp_IndexUsuarios { get; set; } = null!;
+
+        public virtual DbSet<sp_GetAllProyectos_Result> Sp_IndexProyectos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
