@@ -13,61 +13,44 @@ namespace BackEnd.Services.Implementations
             _unidadDeTrabajo= unidadeDeTrabajo;
         }
 
-        public Task<bool> Add(Usuario usuario)
+        public bool Add(Usuario usuario)
         {
-            try
-            {
-                _unidadDeTrabajo._usuariosDAL.Add(usuario);
+             bool resultado =   _unidadDeTrabajo._usuariosDAL.Add(usuario);
                 _unidadDeTrabajo.Complete();
-                return Task.FromResult(true);
-            }
-            catch (Exception) 
-            {
-                return Task.FromResult(false);
-            }
+                return resultado;
         }
 
-        public Task<bool> Delete(int id)
+        public bool Delete(Usuario usuario)
         {
-            try
-            {
-                Usuario usuario = new Usuario { IdUsuario = id };
-                _unidadDeTrabajo._usuariosDAL.Remove(usuario);
-                _unidadDeTrabajo.Complete();
-                return Task.FromResult(true);
-            }
-            catch (Exception)
-            {
 
-                return Task.FromResult(false);
-            }
+              bool resultado =  _unidadDeTrabajo._usuariosDAL.Remove(usuario);
+                _unidadDeTrabajo.Complete();
+                return resultado;
+
         }
 
-        public async Task<Usuario> GetById(int id)
+
+        public Usuario GetById(int id)
         {
-            Usuario usuario =  _unidadDeTrabajo._usuariosDAL.Get(id);
+            Usuario usuario;
+            usuario =  _unidadDeTrabajo._usuariosDAL.Get(id);
             return usuario;
         }
 
         public async Task<IEnumerable<Usuario>> GetUsuarios()
         {
-            IEnumerable<Usuario> usuarios = await _unidadDeTrabajo._usuariosDAL.GetAll();
+            IEnumerable<Usuario> usuarios;
+            usuarios = await _unidadDeTrabajo._usuariosDAL.GetAll();
             return usuarios;
         }
 
-        public Task<bool> Update(Usuario usuario)
+        public bool Update(Usuario usuario)
         {
-            try
-            {
-                _unidadDeTrabajo._usuariosDAL.Update(usuario);
-                _unidadDeTrabajo.Complete();
-                return Task.FromResult(true);
-            }
-            catch (Exception)
-            {
 
-                return Task.FromResult(false);
-            }
+              bool resultado = _unidadDeTrabajo._usuariosDAL.Update(usuario);
+                _unidadDeTrabajo.Complete();
+            return resultado; 
+
         }
     }
 }

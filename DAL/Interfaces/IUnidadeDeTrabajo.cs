@@ -17,6 +17,13 @@ namespace DAL.Interfaces
 
         IEstadosDAL _estadosDAL { get; }
 
+        IPrioridadDAL _prioridadDAL { get; }
+
+        IProyectosDAL _proyectosDAL { get; }
+        ISpUsuariosDAL _spUsuariosDAL { get; }
+
+        ISpProyectosDAL _spProyectosDAL { get;  }
+
         //hasta las interfaces//
 
         bool Complete();

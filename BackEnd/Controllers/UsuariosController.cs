@@ -65,10 +65,12 @@ namespace BackEnd.Controllers
 
         // GET api/<UsuariosController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public IActionResult Get(int id)
         {
-            Usuario usuario = await _usuariosService.GetById(id);
-            return Ok(this.Convertir(usuario));
+            Usuario usuario = _usuariosService.GetById(id);
+            UsuariosModel usuarioModel = Convertir(usuario);
+            return Ok(usuarioModel);
+
         }
 
         // POST api/<UsuariosController>
@@ -98,10 +100,16 @@ namespace BackEnd.Controllers
         }
 
         // DELETE api/<UsuariosController>/5
-        [HttpDelete]
-        public void Delete(int id)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            _usuariosService.Delete(id);
+            Usuario usuario = new Usuario()
+            {
+                IdUsuario = id
+            };
+
+            _usuariosService.Delete(usuario);
+            return Ok();
         }
     }
 }
