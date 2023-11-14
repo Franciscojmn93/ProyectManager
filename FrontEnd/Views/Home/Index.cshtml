@@ -1,8 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model FrontEnd.Models.UsuarioViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @{
+        ViewData["Title"] = "Entrar";
+        Layout = "~/Views/Shared/_Layout _Login.cshtml";
+    }
+
+    <h2>@ViewData["Title"]</h2>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Usuario</title>
+</head>
+<body>
+        <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                <label asp-for="NombreUsaurio" class="control-label">Usuario</label>
+                <input asp-for="NombreUsaurio" class="form-control" />
+                <span asp-validation-for="NombreUsaurio" class="text-danger"></span>
+            </div>
+             <hr />
+            <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                <input type="submit" value="Login" class="btn btn-outline-success btn-sm" />
+            </div>
+        </form>
+</body>
 </div>
+
+

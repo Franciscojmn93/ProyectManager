@@ -73,6 +73,19 @@ namespace BackEnd.Controllers
 
         }
 
+        [HttpGet("VerificarUsuario")]
+        public IActionResult VerificarUsuario(string nombreUsuario)
+        {
+            bool usuarioExiste = _usuariosService.ExisteUsuario(nombreUsuario);
+
+            if (usuarioExiste)
+            {
+                return Ok(new { Mensaje = "Usuario encontrado" });
+            }
+
+            return NotFound(new { Mensaje = "Usuario no encontrado" });
+        }
+
         // POST api/<UsuariosController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] UsuariosModel usuarioModel)

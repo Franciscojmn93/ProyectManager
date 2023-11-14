@@ -6,6 +6,7 @@ namespace BackEnd.Services.Interfaces
         Task<IEnumerable<Usuario>> GetUsuarios();
 
         Usuario GetById(int id);
+        bool ExisteUsuario(String nombreUsuario);
         bool Add(Usuario usuario);
         bool Update(Usuario usuario);
         bool Delete(Usuario usuario);

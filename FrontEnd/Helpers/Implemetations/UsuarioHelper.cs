@@ -76,5 +76,17 @@ namespace FrontEnd.Helpers.Implemetations
 
             return lista;
         }
+
+
+        public bool ExisteUsuario(string NombreUsaurio)
+        {
+            var nombreUsuario = NombreUsaurio;
+            HttpResponseMessage responseMessage = _repository.GetResponse($"api/Usuarios/VerificarUsuario?nombreUsuario={nombreUsuario}");
+            if (responseMessage.ReasonPhrase == "OK")
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

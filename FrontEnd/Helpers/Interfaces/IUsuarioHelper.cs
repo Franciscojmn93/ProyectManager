@@ -8,6 +8,7 @@ namespace FrontEnd.Helpers.Interfaces
         UsuarioViewModel GetById(int id);
         UsuarioViewModel AddUsuario(UsuarioViewModel usuario);
         UsuarioViewModel EditUsuario(UsuarioViewModel usaurio);
+        bool ExisteUsuario(String NombreUsaurio);
 
         void DeleteUsuario(int id);
     }

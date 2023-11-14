@@ -1,16 +1,19 @@
 ﻿using BackEnd.Services.Interfaces;
 using DAL.Interfaces;
 using Entities.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEnd.Services.Implementations
 {
     public class UsuariosService : IUsuariosService
     {
+        ProyectManagerContext _proyectManagerContext;
         IUnidadeDeTrabajo _unidadDeTrabajo;
 
-        public UsuariosService(IUnidadeDeTrabajo unidadeDeTrabajo) 
+        public UsuariosService(IUnidadeDeTrabajo unidadeDeTrabajo, ProyectManagerContext proyectManagerContext) 
         {
-            _unidadDeTrabajo= unidadeDeTrabajo;
+            _proyectManagerContext = proyectManagerContext;
+            _unidadDeTrabajo = unidadeDeTrabajo;
         }
 
         public bool Add(Usuario usuario)
@@ -35,6 +38,11 @@ namespace BackEnd.Services.Implementations
             Usuario usuario;
             usuario =  _unidadDeTrabajo._usuariosDAL.Get(id);
             return usuario;
+        }
+
+        public bool ExisteUsuario(string nombreUsuario)
+        {
+            return _proyectManagerContext.Usuarios.Any(u => u.NombreUsaurio == nombreUsuario);
         }
 
         public async Task<IEnumerable<Usuario>> GetUsuarios()
